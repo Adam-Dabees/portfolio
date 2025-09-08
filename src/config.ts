@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Adam Dabees",
-  title: "Software Engineering Student",
+  title: "Software Engineering Student @ McMaster University",
   description: "Portfolio website of Adam Dabees - Software Engineering Student at McMaster University",
   accentColor: "#1d4ed8",
   social: {
@@ -9,7 +9,7 @@ export const siteConfig = {
     github: "https://github.com/Adam-Dabees",
   },
   aboutMe:
-    "I'm a Software Engineering student at McMaster University with a passion for creating impactful solutions through code. Through my internships and projects, I've gained real-world experience building production systems that serve thousands of users. I've worked on everything from cloud infrastructure at Horus Tech, where I implemented monitoring systems and CI/CD pipelines, to developing AI-powered applications that help people optimize their resumes. My technical toolkit includes modern frameworks like React and Next.js, backend technologies like FastAPI and Node.js, and cloud platforms including AWS and Kubernetes. What drives me is the challenge of solving complex problems and seeing my code make a real difference in people's lives.",
+    "Through internships and projects, I've gained real-world experience building production systems that serve thousands of users.\n\nI've worked on cloud infrastructure at Horus Tech, implementing monitoring systems and CI/CD pipelines, and developed AI-powered applications that help people optimize their resumes.\n\nWhat drives me is solving complex problems and seeing my code make a real difference in people's lives.",
   skills: ["Python", "Java", "JavaScript", "React", "Next.js", "FastAPI", "Node.js", "Docker", "Kubernetes", "AWS", "MongoDB", "PostgreSQL", "Git", "Linux"],
   projects: [
     {
@@ -23,7 +23,7 @@ export const siteConfig = {
       name: "AI Resume Matcher",
       description:
         "Built an AI-powered web application that scans resumes against job descriptions, returning compatibility scores and actionable feedback. Designed modular, scalable backend services with FastAPI + Uvicorn, integrating Groq LLMs for natural language analysis.",
-      link: "https://resume-matcher-m8jjv9bqx-adam-dabees-projects.vercel.app/",
+      link: "https://resumematcherandlatexeditor.vercel.app",
       skills: ["Next.js", "React", "Tailwind", "FastAPI", "Groq AI"],
     },
     {
