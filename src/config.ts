@@ -9,7 +9,7 @@ export const siteConfig = {
     github: "https://github.com/Adam-Dabees",
   },
   aboutMe:
-    "I'm a passionate Software Engineering student at McMaster University with hands-on experience in full-stack development, cloud infrastructure, and DevOps practices. I love building scalable web applications and have worked with modern technologies like React, FastAPI, Docker, and Kubernetes. My experience spans from cloud-based real estate platforms to AI-powered applications and e-commerce solutions. I'm always eager to learn new technologies and tackle challenging problems in software development.",
+    "I'm a Software Engineering student at McMaster University with a passion for creating impactful solutions through code. Through my internships and projects, I've gained real-world experience building production systems that serve thousands of users. I've worked on everything from cloud infrastructure at Horus Tech, where I implemented monitoring systems and CI/CD pipelines, to developing AI-powered applications that help people optimize their resumes. My technical toolkit includes modern frameworks like React and Next.js, backend technologies like FastAPI and Node.js, and cloud platforms including AWS and Kubernetes. What drives me is the challenge of solving complex problems and seeing my code make a real difference in people's lives.",
   skills: ["Python", "Java", "JavaScript", "React", "Next.js", "FastAPI", "Node.js", "Docker", "Kubernetes", "AWS", "MongoDB", "PostgreSQL", "Git", "Linux"],
   projects: [
     {
@@ -23,7 +23,7 @@ export const siteConfig = {
       name: "AI Resume Matcher",
       description:
         "Built an AI-powered web application that scans resumes against job descriptions, returning compatibility scores and actionable feedback. Designed modular, scalable backend services with FastAPI + Uvicorn, integrating Groq LLMs for natural language analysis.",
-      link: "https://github.com/Adam-Dabees/ResumeMatcher",
+      link: "https://resume-matcher-m8jjv9bqx-adam-dabees-projects.vercel.app/",
       skills: ["Next.js", "React", "Tailwind", "FastAPI", "Groq AI"],
     },
     {
@@ -32,6 +32,20 @@ export const siteConfig = {
         "Designing an AI-assisted multi-user editor/whiteboard with live WebSocket-based collaboration, role-based access control, and audit logging. Containerizing services with Docker and orchestrating deployment on Kubernetes (EKS), with CI/CD pipelines using GitHub Actions.",
       link: "https://github.com/Adam-Dabees",
       skills: ["Next.js", "FastAPI", "Redis", "WebSockets", "Kubernetes"],
+    },
+    {
+      name: "Revenge of the Recycling System",
+      description:
+        "A comprehensive project focused on recycling system optimization and environmental impact analysis. Developed innovative solutions for waste management and recycling processes, incorporating data analysis and system design principles to improve sustainability outcomes.",
+      link: "https://ember-dormouse-ef0.notion.site/P3-Revenge-of-the-Recycling-System-6bcd090e3756483bb9ad353e5270fddf",
+      skills: ["System Design", "Data Analysis", "Sustainability", "Project Management"],
+    },
+    {
+      name: "Rescue Mission - Island Serious Game",
+      description:
+        "Developed an exploration command center for the Island serious game as part of a team project. Implemented Java-based game logic with Maven build system, featuring map exploration, point-of-interest detection, and strategic decision-making algorithms. Created automated testing and deployment pipelines with comprehensive output generation.",
+      link: "https://github.com/arian-fallahpour/2AA4-A2",
+      skills: ["Java", "Maven", "Game Development", "Team Collaboration", "Algorithm Design"],
     },
   ],
   experience: [
