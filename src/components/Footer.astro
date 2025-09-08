@@ -18,11 +18,11 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
         <p class="text-base text-gray-600">
           {siteConfig.title}
         </p>
-        <div class="flex gap-x-6">
+        <div class="flex gap-x-4">
           <a
             href={`mailto:${siteConfig.social.email}`}
             aria-label="Email"
-            class="text-gray-600 transition-colors duration-300 hover:text-[var(--accent-color)]"
+            class="text-gray-600 transition-colors duration-300 hover:text-[var(--accent-color)] p-3 rounded-lg hover:bg-gray-100"
             style={`--accent-color: ${siteConfig.accentColor}`}
           >
             <svg
@@ -49,7 +49,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            class="text-gray-600 transition-colors duration-300 hover:text-[var(--accent-color)]"
+            class="text-gray-600 transition-colors duration-300 hover:text-[var(--accent-color)] p-3 rounded-lg hover:bg-gray-100"
             style={`--accent-color: ${siteConfig.accentColor}`}
           >
             <svg
@@ -75,7 +75,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            class="text-gray-600 transition-colors duration-300 hover:text-[var(--accent-color)]"
+            class="text-gray-600 transition-colors duration-300 hover:text-[var(--accent-color)] p-3 rounded-lg hover:bg-gray-100"
             style={`--accent-color: ${siteConfig.accentColor}`}
           >
             <svg
@@ -98,17 +98,17 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
       </div>
 
       <div class="hidden md:block flex flex-col md:items-end gap-4">
-        <nav class="flex gap-x-8">
+        <nav class="flex gap-x-6">
           <a
             href="#about"
-            class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
+            class="text-sm text-gray-600 hover:text-gray-800 transition-colors px-3 py-2 rounded-md hover:bg-gray-100"
             >About</a
           >
           {
             hasProjects && (
               <a
                 href="#projects"
-                class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
+                class="text-sm text-gray-600 hover:text-gray-800 transition-colors px-3 py-2 rounded-md hover:bg-gray-100"
               >
                 Projects
               </a>
@@ -118,7 +118,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
             hasExperience && (
               <a
                 href="#experience"
-                class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
+                class="text-sm text-gray-600 hover:text-gray-800 transition-colors px-3 py-2 rounded-md hover:bg-gray-100"
               >
                 Experience
               </a>
@@ -128,7 +128,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
             hasEducation && (
               <a
                 href="#education"
-                class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
+                class="text-sm text-gray-600 hover:text-gray-800 transition-colors px-3 py-2 rounded-md hover:bg-gray-100"
               >
                 Education
               </a>
