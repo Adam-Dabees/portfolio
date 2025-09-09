@@ -62,6 +62,10 @@ import "../styles/global.css";
     
     <!-- Custom Cursor Script -->
     <script>
+      // Force hide default cursor immediately
+      document.documentElement.style.cursor = 'none';
+      document.body.style.cursor = 'none';
+      
       // Custom Cursor Animation
       document.addEventListener('DOMContentLoaded', function() {
         const cursor = document.getElementById('custom-cursor');
@@ -72,6 +76,23 @@ import "../styles/global.css";
         
         // Only run on desktop devices
         if (window.innerWidth > 768) {
+          // Continuously ensure cursor is hidden
+          function ensureCursorHidden() {
+            document.documentElement.style.cursor = 'none';
+            document.body.style.cursor = 'none';
+            // Apply to all elements
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(el => {
+              if (el.style.cursor !== 'none') {
+                el.style.cursor = 'none';
+              }
+            });
+          }
+          
+          // Run immediately and then periodically
+          ensureCursorHidden();
+          setInterval(ensureCursorHidden, 100);
+          
           // Mouse move event
           document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;

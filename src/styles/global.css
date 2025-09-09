@@ -9,6 +9,15 @@ body {
   cursor: none !important;
 }
 
+html, body {
+  cursor: none !important;
+}
+
+/* Ensure cursor is hidden on all elements */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
 .custom-cursor {
   position: fixed;
   top: 0;
