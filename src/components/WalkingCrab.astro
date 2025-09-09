@@ -1,0 +1,121 @@
+---
+const ariaLabel = "Decorative Pong 404 animation";
+---
+
+<style>
+  .pong-wrapper {
+    position: fixed;
+    left: -15vw;          /* start off-screen */
+    bottom: 1.25rem;      /* adjust to taste */
+    width: min(15rem, 30vw);  /* wider for pong */
+    pointer-events: none; /* don't block clicks */
+    z-index: 50;
+
+    /* Movement loop */
+    animation: sidestep 25s linear infinite;
+  }
+
+  /* Lottie animation container */
+  .pong-container {
+    width: 100%;
+    height: 80px;
+    position: relative;
+  }
+
+  .lottie-animation {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .pong-wrapper {
+      width: min(12rem, 40vw);
+      bottom: 0.75rem;
+    }
+    
+    .pong-container {
+      height: 60px;
+    }
+  }
+
+  /* Very small screens */
+  @media (max-width: 480px) {
+    .pong-wrapper {
+      width: min(10rem, 35vw);
+      bottom: 0.5rem;
+    }
+    
+    .pong-container {
+      height: 50px;
+    }
+  }
+
+  /* Include a scale in all frames so pixelation is visible */
+  @keyframes sidestep {
+    0%   { transform: translateX(0)                         scale(1.2) scaleX(1) }
+    49%  { transform: translateX(calc(100vw + 25vw))        scale(1.2) scaleX(1) }
+    50%  { transform: translateX(calc(100vw + 25vw))        scale(1.2) scaleX(-1) } /* flip to face back */
+    99%  { transform: translateX(0)                         scale(1.2) scaleX(-1) }
+    100% { transform: translateX(0)                         scale(1.2) scaleX(1) }
+  }
+
+
+  /* Respect accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .pong-wrapper,
+    .lottie-animation { animation: none !important; }
+  }
+</style>
+
+<div class="pong-wrapper" aria-label={ariaLabel} aria-hidden="true">
+  <!-- Pong 404 Lottie animation -->
+  <div class="pong-container">
+    <div id="pong-animation" class="lottie-animation"></div>
+  </div>
+</div>
+
+<script>
+  // Load Lottie animation with mobile optimizations
+  import lottie from 'lottie-web';
+  
+  document.addEventListener('DOMContentLoaded', async function() {
+    const animationContainer = document.getElementById('pong-animation');
+    
+    if (animationContainer) {
+      try {
+        // Check if device supports animations (mobile performance consideration)
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        if (prefersReducedMotion) {
+          return; // Skip animation on devices that prefer reduced motion
+        }
+        
+        const animation = lottie.loadAnimation({
+          container: animationContainer,
+          renderer: 'svg', // SVG works well on mobile
+          loop: true,
+          autoplay: true,
+          path: '/Pong 404.json',
+          // Mobile performance optimizations
+          rendererSettings: {
+            preserveAspectRatio: 'xMidYMid meet',
+            progressiveLoad: true
+          }
+        });
+        
+        // Pause animation when page is not visible (mobile battery saving)
+        document.addEventListener('visibilitychange', function() {
+          if (document.hidden) {
+            animation.pause();
+          } else {
+            animation.play();
+          }
+        });
+        
+      } catch (error) {
+        console.log('Lottie animation could not be loaded:', error);
+      }
+    }
+  });
+</script>
