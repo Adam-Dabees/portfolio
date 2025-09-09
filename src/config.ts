@@ -8,8 +8,7 @@ export const siteConfig = {
     linkedin: "https://linkedin.com/in/adam-dabees-bab51a217",
     github: "https://github.com/Adam-Dabees",
   },
-  aboutMe:
-    "Through internships and projects, I've gained real-world experience building production systems that serve thousands of users.\n\nI've worked on cloud infrastructure at Horus Tech, implementing monitoring systems and CI/CD pipelines, and developed AI-powered applications that help people optimize their resumes.\n\nWhat drives me is solving complex problems and seeing my code make a real difference in people's lives.",
+  aboutMe: "Through internships and projects, I've gained real-world experience building production systems that serve thousands of users.\n\nI've worked on cloud infrastructure at Horus Tech, implementing monitoring systems and CI/CD pipelines, and developed AI-powered applications that help people optimize their resumes.\n\nWhat drives me is solving complex problems and seeing my code make a real difference in people's lives.",
   skills: ["Python", "Java", "JavaScript", "React", "Next.js", "FastAPI", "Node.js", "Docker", "Kubernetes", "AWS", "MongoDB", "PostgreSQL", "Git", "Linux"],
   projects: [
     {
@@ -53,7 +52,7 @@ export const siteConfig = {
       company: "Brandeck Egypt",
       title: "Contract Software Developer",
       dateRange: "Nov 2024 - Present",
-      website: "https://brandeck.com",
+      website: "https://brandeckegypt.com",
       bullets: [
         "Maintained and continuously optimized a high-traffic Shopify e-commerce site with 30K+ monthly visitors",
         "Integrated new features with JavaScript, HTML, and Liquid, ensuring responsive, accessible, and performant UI",
