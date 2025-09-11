@@ -4,7 +4,7 @@ body {
   font-family: 'IBM Plex Mono', monospace;
 }
 
-/* Custom Cursor Styles */
+/* Custom Cursor Styles - Aggressive hiding */
 * {
   cursor: none !important;
 }
@@ -13,8 +13,23 @@ html, body {
   cursor: none !important;
 }
 
-/* Ensure cursor is hidden on all elements */
+/* Ensure cursor is hidden on all elements and pseudo-elements */
 *, *::before, *::after {
+  cursor: none !important;
+}
+
+/* Target specific elements that commonly show cursors */
+a, button, input, textarea, select, [role="button"], [role="link"], [tabindex] {
+  cursor: none !important;
+}
+
+/* Override any inherited cursor styles */
+div, span, p, h1, h2, h3, h4, h5, h6, section, article, header, footer, nav, main, aside {
+  cursor: none !important;
+}
+
+/* Ensure no cursor on interactive elements */
+[onclick], [onmousedown], [onmouseup], [onmouseover], [onmouseout] {
   cursor: none !important;
 }
 

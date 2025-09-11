@@ -15,7 +15,7 @@ export const siteConfig = {
       name: "Shopify Bot Platform",
       description:
         "Developed a full-stack automation platform enabling real-time Shopify product tracking and automated checkout preparation. Implemented user authentication with MongoDB, integrated Stripe API for tiered subscription plans, and built responsive UI with React/Tailwind.",
-      link: "https://github.com/Adam-Dabees",
+      link: "https://shopify-shop-adam-dabees-projects.vercel.app",
       skills: ["Next.js", "React", "FastAPI", "MongoDB", "Stripe", "Docker"],
     },
     {

@@ -66,6 +66,33 @@ import "../styles/global.css";
       document.documentElement.style.cursor = 'none';
       document.body.style.cursor = 'none';
       
+      // Aggressive cursor hiding function
+      function hideAllCursors() {
+        // Hide cursor on document and body
+        document.documentElement.style.cursor = 'none';
+        document.body.style.cursor = 'none';
+        
+        // Hide cursor on all existing elements
+        const allElements = document.querySelectorAll('*');
+        allElements.forEach(el => {
+          el.style.cursor = 'none';
+          // Also set on computed style
+          if (el.style) {
+            el.style.setProperty('cursor', 'none', 'important');
+          }
+        });
+        
+        // Force cursor hiding on common problematic elements
+        const interactiveElements = document.querySelectorAll('a, button, input, textarea, select, [role="button"], [role="link"], [tabindex], [onclick]');
+        interactiveElements.forEach(el => {
+          el.style.cursor = 'none';
+          el.style.setProperty('cursor', 'none', 'important');
+        });
+      }
+      
+      // Run immediately
+      hideAllCursors();
+      
       // Custom Cursor Animation
       document.addEventListener('DOMContentLoaded', function() {
         const cursor = document.getElementById('custom-cursor');
@@ -76,28 +103,52 @@ import "../styles/global.css";
         
         // Only run on desktop devices
         if (window.innerWidth > 768) {
-          // Continuously ensure cursor is hidden
-          function ensureCursorHidden() {
-            document.documentElement.style.cursor = 'none';
-            document.body.style.cursor = 'none';
-            // Apply to all elements
-            const allElements = document.querySelectorAll('*');
-            allElements.forEach(el => {
-              if (el.style.cursor !== 'none') {
-                el.style.cursor = 'none';
+          // Run the aggressive cursor hiding
+          hideAllCursors();
+          
+          // Set up continuous cursor hiding
+          setInterval(hideAllCursors, 50); // More frequent updates
+          
+          // Watch for dynamically added elements
+          const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach(function(node) {
+                  if (node.nodeType === 1) { // Element node
+                    node.style.cursor = 'none';
+                    node.style.setProperty('cursor', 'none', 'important');
+                    // Also apply to child elements
+                    const childElements = node.querySelectorAll ? node.querySelectorAll('*') : [];
+                    childElements.forEach(child => {
+                      child.style.cursor = 'none';
+                      child.style.setProperty('cursor', 'none', 'important');
+                    });
+                  }
+                });
               }
             });
-          }
+          });
           
-          // Run immediately and then periodically
-          ensureCursorHidden();
-          setInterval(ensureCursorHidden, 100);
+          // Start observing
+          observer.observe(document.body, {
+            childList: true,
+            subtree: true
+          });
           
           // Mouse move event
           document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
+            // Force hide cursor on mouse move
+            hideAllCursors();
           });
+          
+          // Additional mouse events to ensure cursor stays hidden
+          document.addEventListener('mouseover', hideAllCursors);
+          document.addEventListener('mouseenter', hideAllCursors);
+          document.addEventListener('mouseleave', hideAllCursors);
+          document.addEventListener('mousedown', hideAllCursors);
+          document.addEventListener('mouseup', hideAllCursors);
           
           // Animation loop
           function animateCursor() {
