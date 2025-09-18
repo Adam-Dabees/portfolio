@@ -59,17 +59,6 @@ export const siteConfig = {
         "Provided ongoing support, scalability improvements, and troubleshooting in a production environment",
       ],
     },
-    {
-      company: "Horus Tech",
-      title: "Software Intern",
-      dateRange: "May 2024 - Sep 2024",
-      bullets: [
-        "Engineered and maintained a cloud-based real estate listing platform leveraging OpenStack, Ansible, and Terraform for scalable infrastructure provisioning",
-        "Built and optimized CI/CD pipelines using Jenkins and Git, reducing deployment time and ensuring reliable feature releases",
-        "Implemented monitoring with Prometheus + Grafana and centralized logging with ELK Stack, achieving high uptime and rapid incident response",
-        "Containerized microservices with Docker to streamline development workflows and environment consistency",
-      ],
-    },
   ],
   education: [
     {
