@@ -8,8 +8,8 @@ export const siteConfig = {
     linkedin: "https://linkedin.com/in/adam-dabees-bab51a217",
     github: "https://github.com/Adam-Dabees",
   },
-  aboutMe: "Through internships and projects, I've gained real-world experience building production systems that serve thousands of users.\n\nI've worked on cloud infrastructure at Horus Tech, implementing monitoring systems and CI/CD pipelines, and developed AI-powered applications that help people optimize their resumes.\n\nWhat drives me is solving complex problems and seeing my code make a real difference in people's lives.",
-  skills: ["Python", "Java", "JavaScript", "React", "Next.js", "FastAPI", "Node.js", "Docker", "Kubernetes", "AWS", "MongoDB", "PostgreSQL", "Git", "Linux"],
+  aboutMe: "Software Engineering student with hands-on experience building production-ready applications that serve thousands of users. Specialized in full-stack development, cloud architecture, and AI integration.\n\nBuilt scalable e-commerce automation platforms, AI-powered resume optimization tools, and real-time multiplayer gaming systems. Experienced in AWS serverless architecture, Kubernetes orchestration, and modern web technologies.\n\nPassionate about creating solutions that solve real-world problems and deliver measurable business value.",
+  skills: ["Next.js", "React", "FastAPI", "Python", "AWS", "Kubernetes", "Docker", "PostgreSQL", "WebSockets", "Stripe", "Firebase", "Groq AI", "Tailwind CSS", "TypeScript"],
   projects: [
     {
       name: "ShopifyShop - E-commerce Product Tracking & Automation Platform",
