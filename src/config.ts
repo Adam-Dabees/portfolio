@@ -26,11 +26,11 @@ export const siteConfig = {
       skills: ["Next.js", "React", "Tailwind", "FastAPI", "Groq AI"],
     },
     {
-      name: "Real-Time Collaboration Platform",
+      name: "LiveCategories - Real-Time Multiplayer Word Game Platform",
       description:
-        "Designing an AI-assisted multi-user editor/whiteboard with live WebSocket-based collaboration, role-based access control, and audit logging. Containerizing services with Docker and orchestrating deployment on Kubernetes (EKS), with CI/CD pipelines using GitHub Actions.",
-      link: "https://github.com/Adam-Dabees",
-      skills: ["Next.js", "FastAPI", "Redis", "WebSockets", "Kubernetes"],
+        "A scalable, cloud-native multiplayer gaming platform featuring real-time gameplay, user authentication, and comprehensive analytics. Built with modern microservices architecture using Next.js 14, FastAPI, and WebSocket connections for sub-100ms latency game updates. Successfully containerized with Docker and orchestrated on Kubernetes with auto-scaling capabilities, handling 1000+ concurrent players. Implemented Firebase authentication, PostgreSQL/Firestore data persistence, and comprehensive monitoring with 99.9% uptime. Features dynamic category system, responsive mobile-first UI with Framer Motion animations, and intelligent load balancing across game instances.",
+      link: "https://live-categories.vercel.app",
+      skills: ["Next.js", "React", "FastAPI", "PostgreSQL", "Firestore", "WebSockets", "Kubernetes", "Docker", "Firebase", "Tailwind CSS", "Framer Motion"],
     },
     {
       name: "Revenge of the Recycling System",
