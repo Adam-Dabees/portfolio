@@ -12,18 +12,18 @@ export const siteConfig = {
   skills: ["Python", "Java", "JavaScript", "React", "Next.js", "FastAPI", "Node.js", "Docker", "Kubernetes", "AWS", "MongoDB", "PostgreSQL", "Git", "Linux"],
   projects: [
     {
-      name: "Shopify Bot Platform",
+      name: "ShopifyShop - E-commerce Product Tracking & Automation Platform",
       description:
-        "Developed a full-stack automation platform enabling real-time Shopify product tracking and automated checkout preparation. Implemented user authentication with MongoDB, integrated Stripe API for tiered subscription plans, and built responsive UI with React/Tailwind.",
+        "Full-stack e-commerce monitoring and automation platform enabling real-time Shopify product tracking, inventory monitoring, and automated checkout assistance. Built with Next.js 15, React 19, and FastAPI on AWS serverless architecture. Features AWS Cognito authentication, Stripe-powered subscription model with Pro/Premium tiers, DynamoDB data persistence, and Playwright-powered browser automation. Implements real-time product scraping with JSON endpoints, responsive dashboard with mobile-friendly UI, and comprehensive error handling. Achieves scalable serverless deployment with API Gateway and Lambda functions, supporting growing user base with automated checkout system and subscription-based revenue model.",
       link: "https://shopify-shop-adam-dabees-projects.vercel.app",
-      skills: ["Next.js", "React", "FastAPI", "MongoDB", "Stripe", "Docker"],
+      skills: ["Next.js", "React", "FastAPI", "AWS Lambda", "DynamoDB", "Stripe", "AWS Cognito", "Playwright", "Tailwind CSS"],
     },
     {
-      name: "AI Resume Matcher",
+      name: "ResumeMatcher Pro - AI-Powered Resume Optimization Platform",
       description:
-        "Built an AI-powered web application that scans resumes against job descriptions, returning compatibility scores and actionable feedback. Designed modular, scalable backend services with FastAPI + Uvicorn, integrating Groq LLMs for natural language analysis.",
+        "Full-stack AI-powered resume optimization platform that leverages Groq's language models to analyze resume-job compatibility and generate detailed match scores. Features intelligent LaTeX editing capabilities that automatically enhance resumes by incorporating job-specific keywords and technical skills. Built with Next.js 15, React 19, and FastAPI with modular service architecture. Implements real-time job scraping from URLs, interactive dashboard with responsive design, and score improvement tracking with before/after compatibility metrics. Streamlines resume optimization from hours to minutes while delivering measurable score improvements through targeted enhancements.",
       link: "https://resumematcherandlatexeditor.vercel.app",
-      skills: ["Next.js", "React", "Tailwind", "FastAPI", "Groq AI"],
+      skills: ["Next.js", "React", "FastAPI", "Groq AI", "Tailwind CSS", "LaTeX", "PDF Processing", "Vercel"],
     },
     {
       name: "LiveCategories - Real-Time Multiplayer Word Game Platform",
