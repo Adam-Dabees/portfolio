@@ -10,12 +10,25 @@ export const siteConfig = {
   },
   aboutMe: "Software Engineering student with hands-on experience building production-ready applications that serve thousands of users. Specialized in full-stack development, cloud architecture, and AI integration.\n\nBuilt scalable e-commerce automation platforms, AI-powered resume optimization tools, and real-time multiplayer gaming systems. Experienced in AWS serverless architecture, Kubernetes orchestration, and modern web technologies.\n\nPassionate about creating solutions that solve real-world problems and deliver measurable business value.",
   skills: ["Next.js", "React", "FastAPI", "Python", "AWS", "Kubernetes", "Docker", "PostgreSQL", "WebSockets", "Stripe", "Firebase", "Groq AI", "Tailwind CSS", "TypeScript"],
+  experience: [
+    {
+      company: "Brandeck Egypt",
+      title: "Contract Software Developer",
+      dateRange: "Nov 2024 - Present",
+      website: "https://brandeckegypt.com",
+      bullets: [
+        "Maintained and continuously optimized a high-traffic Shopify e-commerce site with 30K+ monthly visitors",
+        "Integrated new features with JavaScript, HTML, and Liquid, ensuring responsive, accessible, and performant UI",
+        "Provided ongoing support, scalability improvements, and troubleshooting in a production environment",
+      ],
+    },
+  ],
   projects: [
     {
       name: "ShopifyShop - E-commerce Product Tracking & Automation Platform",
       description:
         "Full-stack e-commerce monitoring and automation platform enabling real-time Shopify product tracking, inventory monitoring, and automated checkout assistance. Built with Next.js 15, React 19, and FastAPI on AWS serverless architecture. Features AWS Cognito authentication, Stripe-powered subscription model with Pro/Premium tiers, DynamoDB data persistence, and Playwright-powered browser automation. Implements real-time product scraping with JSON endpoints, responsive dashboard with mobile-friendly UI, and comprehensive error handling. Achieves scalable serverless deployment with API Gateway and Lambda functions, supporting growing user base with automated checkout system and subscription-based revenue model.",
-      link: "https://shopify-shop-adam-dabees-projects.vercel.app",
+      link: "https://shopify-shop-three.vercel.app",
       skills: ["Next.js", "React", "FastAPI", "AWS Lambda", "DynamoDB", "Stripe", "AWS Cognito", "Playwright", "Tailwind CSS"],
     },
     {
@@ -45,19 +58,6 @@ export const siteConfig = {
         "Developed an exploration command center for the Island serious game as part of a team project. Implemented Java-based game logic with Maven build system, featuring map exploration, point-of-interest detection, and strategic decision-making algorithms. Created automated testing and deployment pipelines with comprehensive output generation.",
       link: "https://github.com/arian-fallahpour/2AA4-A2",
       skills: ["Java", "Maven", "Game Development", "Team Collaboration", "Algorithm Design"],
-    },
-  ],
-  experience: [
-    {
-      company: "Brandeck Egypt",
-      title: "Contract Software Developer",
-      dateRange: "Nov 2024 - Present",
-      website: "https://brandeckegypt.com",
-      bullets: [
-        "Maintained and continuously optimized a high-traffic Shopify e-commerce site with 30K+ monthly visitors",
-        "Integrated new features with JavaScript, HTML, and Liquid, ensuring responsive, accessible, and performant UI",
-        "Provided ongoing support, scalability improvements, and troubleshooting in a production environment",
-      ],
     },
   ],
   education: [
