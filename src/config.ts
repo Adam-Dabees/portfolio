@@ -8,7 +8,7 @@ export const siteConfig = {
     linkedin: "https://linkedin.com/in/adam-dabees-bab51a217",
     github: "https://github.com/Adam-Dabees",
   },
-  aboutMe: "Software Engineering student with hands-on experience building production-ready applications that serve thousands of users. Specialized in full-stack development, cloud architecture, and AI integration.\n\nBuilt scalable e-commerce automation platforms, AI-powered resume optimization tools, and real-time multiplayer gaming systems. Experienced in AWS serverless architecture, Kubernetes orchestration, and modern web technologies.\n\nPassionate about creating solutions that solve real-world problems and deliver measurable business value.",
+  aboutMe: "I'm not just a software engineer—I'm a well-rounded professional with a unique blend of technical expertise and soft skills that sets me apart. Beyond my technical capabilities in full-stack development, cloud architecture, and AI integration, I bring exceptional teachability, problem-solving skills, and adaptability to every project.\n\nMy approach combines strong technical foundations with excellent communication, collaboration, and learning agility. I thrive in dynamic environments where I can quickly adapt to new technologies and methodologies while maintaining high-quality deliverables.\n\nThis holistic skill set enables me to not only build scalable applications but also effectively work with teams, understand business requirements, and continuously evolve with the ever-changing tech landscape.",
   skills: ["Next.js", "React", "FastAPI", "Python", "AWS", "Kubernetes", "Docker", "PostgreSQL", "WebSockets", "Stripe", "Firebase", "Groq AI", "Tailwind CSS", "TypeScript"],
   experience: [
     {
