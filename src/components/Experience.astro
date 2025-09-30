@@ -22,16 +22,6 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
             <div class="relative space-y-8">
               {siteConfig.experience.map((exp, index) => (
                 <div class="relative">
-                  {/* Timeline dot at top of card */}
-                  <div
-                    class="absolute left-1/2 -top-4 w-4 h-4 bg-white border-2 rounded-full -translate-x-1/2 z-20 transition-all duration-300"
-                    style={`border-color: ${siteConfig.accentColor}; background-color: ${siteConfig.accentColor}`}
-                  />
-
-                  {/* Connecting line below card */}
-                  {index < siteConfig.experience.length - 1 && (
-                    <div class="absolute left-1/2 bottom-0 w-0.5 h-8 bg-gray-300 -translate-x-1/2 translate-y-full z-10" />
-                  )}
 
                   {/* Experience card */}
                   {exp.website ? (

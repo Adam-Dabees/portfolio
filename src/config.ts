@@ -14,7 +14,7 @@ export const siteConfig = {
     {
       company: "Brandeck Egypt",
       title: "Contract Software Developer",
-      dateRange: "Nov 2024 - Present",
+      dateRange: "Jan 2025 - Present",
       website: "https://brandeckegypt.com",
       bullets: [
         "Maintained and continuously optimized a high-traffic Shopify e-commerce site with 30K+ monthly visitors",
