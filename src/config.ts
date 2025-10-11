@@ -27,8 +27,8 @@ export const siteConfig = {
     {
       name: "ShopifyShop - E-commerce Product Tracking & Automation Platform",
       description:
-        "Full-stack e-commerce monitoring and automation platform enabling real-time Shopify product tracking, inventory monitoring, and automated checkout assistance. Built with Next.js 15, React 19, and FastAPI on AWS serverless architecture. Features AWS Cognito authentication, Stripe-powered subscription model with Pro/Premium tiers, DynamoDB data persistence, and Playwright-powered browser automation. Implements real-time product scraping with JSON endpoints, responsive dashboard with mobile-friendly UI, and comprehensive error handling. Achieves scalable serverless deployment with API Gateway and Lambda functions, supporting growing user base with automated checkout system and subscription-based revenue model.",
-      link: "https://shopify-shop-three.vercel.app",
+        "Advanced e-commerce automation platform specializing in real-time product monitoring, inventory tracking, and automated purchasing across any online store. Built with Next.js 15, React 19, and AWS serverless architecture featuring WebSocket-based queue system for processing Playwright browser automation requests. Implements real-time product scraping with JSON endpoints, responsive dashboard with mobile-optimized UI, and comprehensive error handling. Features AWS Cognito authentication, Stripe-powered subscription model with Basic/Pro/Premium tiers, DynamoDB data persistence, and WebSocket-driven queue system for scalable autobuy execution. Achieves high-performance serverless deployment with API Gateway and Lambda functions, supporting mass purchasing capabilities, priority processing, and subscription-based revenue model with advanced monitoring and automation features.",
+      link: "https://www.shopifly.io",
       skills: ["Next.js", "React", "FastAPI", "AWS Lambda", "DynamoDB", "Stripe", "AWS Cognito", "Playwright", "Tailwind CSS"],
     },
     {
