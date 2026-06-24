@@ -9,17 +9,29 @@ export const siteConfig = {
     github: "https://github.com/Adam-Dabees",
   },
   aboutMe: "I'm not just a software engineer—I'm a well-rounded professional with a unique blend of technical expertise and soft skills that sets me apart. Beyond my technical capabilities in full-stack development, cloud architecture, and AI integration, I bring exceptional teachability, problem-solving skills, and adaptability to every project.\n\nMy approach combines strong technical foundations with excellent communication, collaboration, and learning agility. I thrive in dynamic environments where I can quickly adapt to new technologies and methodologies while maintaining high-quality deliverables.\n\nThis holistic skill set enables me to not only build scalable applications but also effectively work with teams, understand business requirements, and continuously evolve with the ever-changing tech landscape.",
-  skills: ["Next.js", "React", "FastAPI", "Python", "AWS", "Kubernetes", "Docker", "PostgreSQL", "WebSockets", "Stripe", "Firebase", "Groq AI", "Tailwind CSS", "TypeScript"],
+  skills: ["Next.js", "React", "FastAPI", "Python", "AWS", "Azure", "Terraform", "Kubernetes", "Docker", "PostgreSQL", "WebSockets", "AI Agents", "MCP", "Stripe", "Firebase", "Groq AI", "Tailwind CSS", "TypeScript"],
   experience: [
     {
+      company: "Ontario Teachers' Pension Plan",
+      title: "Software Engineer (Co-Op)",
+      dateRange: "May 2026 - Present",
+      bullets: [
+        "Architected and delivered Azure cloud infrastructure end-to-end for financial systems at institutional scale",
+        "Built fault-tolerant distributed systems across load balancers, TCP/IP networking, and database reliability controls",
+        "Automated provisioning with Terraform across 5+ internal services",
+        "Built AI agents and MCP-based systems for operational automation, cutting mean-time-to-detection on production anomalies by 40%",
+      ],
+    },
+    {
       company: "Brandeck Egypt",
-      title: "Contract Software Developer",
-      dateRange: "Jan 2025 - Present",
+      title: "Software Developer (Contract)",
+      dateRange: "Jan 2025 - May 2026",
       website: "https://brandeckegypt.com",
       bullets: [
-        "Maintained and continuously optimized a high-traffic Shopify e-commerce site with 30K+ monthly visitors",
-        "Integrated new features with JavaScript, HTML, and Liquid, ensuring responsive, accessible, and performant UI",
-        "Provided ongoing support, scalability improvements, and troubleshooting in a production environment",
+        "Took end-to-end ownership of scalable microservices serving 30K+ monthly users with zero unplanned downtime",
+        "Engineered distributed AWS Lambda and DynamoDB pipelines with parallelized async workers, cutting end-to-end latency 80% and compute costs 35%",
+        "Implemented idempotent writes, retries with exponential backoff, and rate-limiting to absorb 3x traffic spikes",
+        "Established structured logging, distributed tracing, and alerting that reduced incident resolution time 50%",
       ],
     },
   ],
@@ -63,12 +75,11 @@ export const siteConfig = {
   education: [
     {
       school: "McMaster University",
-      degree: "B.Eng. in Software Engineering (Co-Op)",
-      dateRange: "Sep 2023 - Present",
+      degree: "B.Eng. Software Engineering (Co-Op)",
+      dateRange: "Sep 2023 - May 2028 (Expected)",
       achievements: [
-        "Currently pursuing Bachelor of Engineering in Software Engineering with Co-Op program",
-        "Gaining hands-on experience through internships and practical projects",
-        "Focusing on full-stack development, cloud infrastructure, and DevOps practices",
+        "GPA: 3.91/4.0 — Top 1% of cohort",
+        "Bachelor of Engineering in Software Engineering, Co-Op stream",
       ],
     },
   ],
