@@ -1,0 +1,37 @@
+---
+import { siteConfig } from "../config";
+import SectionHeading from "./SectionHeading.astro";
+import { marked } from "../lib/text";
+
+const entries = siteConfig.leadership ?? [];
+---
+
+{
+  entries.length > 0 && (
+    <section id="leadership" class="mx-auto max-w-6xl px-6 sm:px-8 py-24 sm:py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+        <SectionHeading index="05" title="Leadership" />
+
+        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+          {entries.map((entry, index) => (
+            <article
+              class="card rounded-lg p-6 reveal"
+              style={`transition-delay: ${Math.min(index * 80, 160)}ms`}
+            >
+              <p class="label text-faint">{entry.role}</p>
+              <h3 class="mt-2 text-lg font-medium tracking-tight text-ink leading-snug">
+                {entry.org}
+              </h3>
+              <p class="nums mt-1 text-xs text-faint">{entry.dateRange}</p>
+              <p class="mt-4 prose-body text-[0.9rem] leading-relaxed text-dim">
+                {marked(entry.description).map((segment) =>
+                  segment.mark ? <span class="metric">{segment.text}</span> : segment.text,
+                )}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

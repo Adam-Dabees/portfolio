@@ -1,58 +1,60 @@
 ---
 import { siteConfig } from "../config";
-const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+import SectionHeading from "./SectionHeading.astro";
+import { marked } from "../lib/text";
+
+const schools = siteConfig.education ?? [];
 ---
 
 {
-  hasEducation && (
-    <section id="education" class="p-8 sm:p-12 md:p-16 lg:p-24">
-      <div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <div class="lg:col-span-4">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-              Education
-            </h2>
-            <div
-              class="w-[75px] h-[5px] mt-2 rounded-full"
-              style={`background-color: ${siteConfig.accentColor}`}
-            />
-          </div>
+  schools.length > 0 && (
+    <section id="education" class="mx-auto max-w-6xl px-6 sm:px-8 py-24 sm:py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+        <SectionHeading index="06" title="Education" />
 
-          <div class="lg:col-span-8">
-            <div class="space-y-8">
-              {siteConfig.education.map((edu) => (
-                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-5 md:p-6 hover:shadow-md transition-shadow duration-300">
-                  <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
-                    <div>
-                      <h3 class="text-lg sm:text-xl font-semibold text-gray-900">
-                        {edu.degree}
-                      </h3>
-                      <p
-                        class="text-base sm:text-lg"
-                        style={`color: ${siteConfig.accentColor}`}
-                      >
-                        {edu.school}
-                      </p>
-                    </div>
-                    <span class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-0">
-                      {edu.dateRange}
+        <div class="lg:col-span-8 space-y-8">
+          {schools.map((school, index) => (
+            <article
+              class="reveal border-t border-line pt-8"
+              style={`transition-delay: ${Math.min(index * 80, 160)}ms`}
+            >
+              <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <h3 class="text-xl sm:text-2xl font-medium tracking-tight text-ink">
+                  {school.school}
+                </h3>
+                <span class="nums label text-faint ml-auto">{school.dateRange}</span>
+              </div>
+
+              <p class="mt-1.5 text-sm text-accent">{school.degree}</p>
+              <p class="mt-1 text-xs text-faint">{school.location}</p>
+
+              <ul class="mt-5 space-y-3">
+                {school.achievements.map((achievement) => (
+                  <li class="flex gap-3">
+                    <span class="mt-[0.7em] h-px w-3 shrink-0 bg-line-strong" aria-hidden="true" />
+                    <span class="prose-body text-[0.95rem] leading-relaxed text-dim">
+                      {marked(achievement).map((segment) =>
+                        segment.mark ? <span class="metric">{segment.text}</span> : segment.text,
+                      )}
                     </span>
-                  </div>
+                  </li>
+                ))}
+              </ul>
 
-                  <ul class="space-y-2">
-                    {edu.achievements.map((achievement) => (
-                      <li class="flex items-start">
-                        <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0" />
-                        <span class="text-sm sm:text-base text-gray-600">
-                          {achievement}
-                        </span>
+              {school.coursework?.length > 0 && (
+                <div class="mt-7">
+                  <p class="label text-faint">Relevant coursework</p>
+                  <ul class="mt-3 flex flex-wrap gap-x-2 gap-y-2">
+                    {school.coursework.map((course) => (
+                      <li class="text-[0.8rem] leading-none text-dim border border-line rounded-full px-3 py-1.5 hover:border-line-strong hover:text-ink transition-colors">
+                        {course}
                       </li>
                     ))}
                   </ul>
                 </div>
-              ))}
-            </div>
-          </div>
+              )}
+            </article>
+          ))}
         </div>
       </div>
     </section>

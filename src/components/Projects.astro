@@ -1,101 +1,94 @@
 ---
 import { siteConfig } from "../config";
-const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+import SectionHeading from "./SectionHeading.astro";
+import { marked } from "../lib/text";
+
+const projects = siteConfig.projects ?? [];
 ---
 
 {
-  hasProjects && (
-    <section id="projects" class="p-8 sm:p-12 md:p-16 lg:p-24">
-      <div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <div class="lg:col-span-4">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-              Projects
-            </h2>
-            <div
-              class="w-[75px] h-[5px] mt-2 rounded-full"
-              style={`background-color: ${siteConfig.accentColor}`}
-            />
-          </div>
+  projects.length > 0 && (
+    <section id="work" class="mx-auto max-w-6xl px-6 sm:px-8 py-24 sm:py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+        <SectionHeading
+          index="03"
+          title="Selected work"
+          note="Things I built end to end. The numbers are measured, not estimated."
+        />
 
-          <div class="lg:col-span-8">
-            <div class="space-y-8">
-              {siteConfig.projects.map((project, index) => {
-                const Component = project.link ? "a" : "div";
-                const linkProps = project.link
-                  ? {
-                      href: project.link,
-                      target: "_blank",
-                      rel: "noopener noreferrer",
-                    }
-                  : {};
+        <div class="lg:col-span-8">
+          <div class="border-t border-line">
+            {projects.map((project, index) => {
+              const Wrapper = project.link ? "a" : "div";
+              const linkProps = project.link
+                ? { href: project.link, target: "_blank", rel: "noopener noreferrer" }
+                : {};
 
-                return (
-                  <div class="group relative">
-                    <Component
-                      {...linkProps}
-                      class={`block relative p-4 sm:p-6 md:p-8 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 ${
-                        project.link
-                          ? "hover:bg-white hover:shadow-xl hover:border-gray-300 hover:-translate-y-1"
-                          : ""
-                      }`}
-                    >
-                      {project.link && (
-                        <div class="absolute top-2 right-2 sm:top-6 sm:right-6 md:top-8 md:right-8 w-6 h-6 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center bg-gray-900 rounded-full text-white transition-all duration-300 group-hover:bg-gray-700">
-                          <svg
-                            class="w-3 h-3 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M7 17L17 7M17 7H7M17 7V17"
-                            />
-                          </svg>
-                        </div>
-                      )}
+              return (
+                <Wrapper
+                  {...linkProps}
+                  class={`group block border-b border-line py-8 sm:py-10 reveal transition-colors duration-300 ${
+                    project.link ? "hover:border-line-strong" : ""
+                  }`}
+                  style={`transition-delay: ${Math.min(index * 60, 240)}ms`}
+                >
+                  <div class="flex items-start gap-4 sm:gap-6">
+                    <span class="label nums text-faint pt-2 hidden sm:block">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
 
-                      <div class="space-y-4">
-                        <div>
-                          <span
-                            class="text-sm font-mono"
-                            style={{ color: siteConfig.accentColor }}
-                          >
-                            0{index + 1}
-                          </span>
-                          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mt-1">
-                            {project.name}
-                          </h3>
-                        </div>
-
-                        <p
-                          class={`text-base sm:text-lg text-gray-600 leading-relaxed ${project.link ? "pr-28 sm:pr-14 md:pr-16" : ""}`}
-                        >
-                          {project.description}
-                        </p>
-
-                        {project.skills && project.skills.length > 0 && (
-                          <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2">
-                            {project.skills.map((skill) => (
-                              <span
-                                class={`px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gray-900 text-white rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 ${
-                                  project.link ? "group-hover:bg-gray-800" : ""
-                                }`}
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
-                        )}
+                    <div class="flex-1 min-w-0">
+                      <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                        <h3 class="text-xl sm:text-2xl font-medium tracking-tight text-ink group-hover:text-accent transition-colors">
+                          {project.name}
+                        </h3>
+                        <span class="text-xs text-faint">{project.tagline}</span>
+                        <span class="nums label text-faint ml-auto">{project.year}</span>
                       </div>
-                    </Component>
+
+                      <p class="mt-4 max-w-2xl prose-body text-[0.95rem] sm:text-base leading-relaxed text-dim">
+                        {marked(project.description).map((segment) =>
+                          segment.mark ? (
+                            <span class="metric">{segment.text}</span>
+                          ) : (
+                            segment.text
+                          ),
+                        )}
+                      </p>
+
+                      {project.skills?.length > 0 && (
+                        <ul class="mt-5 flex flex-wrap gap-x-2 gap-y-2">
+                          {project.skills.map((skill) => (
+                            <li class="text-[0.7rem] tracking-wide text-faint border border-line rounded px-2 py-1 group-hover:text-dim transition-colors">
+                              {skill}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+
+                    {project.link && (
+                      <span
+                        class="shrink-0 mt-1.5 text-faint group-hover:text-accent transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        aria-hidden="true"
+                      >
+                        <svg
+                          class="h-4 w-4"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                      </span>
+                    )}
                   </div>
-                );
-              })}
-            </div>
+                </Wrapper>
+              );
+            })}
           </div>
         </div>
       </div>

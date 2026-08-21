@@ -1,78 +1,256 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------
+   Design tokens
+   Dark is the default. `data-theme="light"` on <html> inverts it.
+   `@theme inline` keeps the utilities pointing at the live vars, so
+   the toggle re-themes the page without a reload.
+--------------------------------------------------------------- */
+
+:root {
+  --c-bg: #0a0b0d;
+  --c-raised: #111318;
+  --c-inset: rgba(255, 255, 255, 0.025);
+  --c-line: rgba(255, 255, 255, 0.09);
+  --c-line-strong: rgba(255, 255, 255, 0.18);
+  --c-ink: #e9eaee;
+  --c-dim: #9599a3;
+  --c-faint: #676b76;
+  --c-accent: #8aa4ff;
+  --c-accent-soft: rgba(138, 164, 255, 0.14);
+  --c-glow: rgba(138, 164, 255, 0.1);
+  --c-shadow: rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --c-bg: #fbfbf9;
+  --c-raised: #ffffff;
+  --c-inset: rgba(0, 0, 0, 0.015);
+  --c-line: rgba(16, 18, 24, 0.11);
+  --c-line-strong: rgba(16, 18, 24, 0.24);
+  --c-ink: #14161b;
+  --c-dim: #52565e;
+  --c-faint: #83878f;
+  --c-accent: #3352d8;
+  --c-accent-soft: rgba(51, 82, 216, 0.09);
+  --c-glow: rgba(51, 82, 216, 0.07);
+  --c-shadow: rgba(16, 18, 24, 0.08);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-canvas: var(--c-bg);
+  --color-raised: var(--c-raised);
+  --color-inset: var(--c-inset);
+  --color-line: var(--c-line);
+  --color-line-strong: var(--c-line-strong);
+  --color-ink: var(--c-ink);
+  --color-dim: var(--c-dim);
+  --color-faint: var(--c-faint);
+  --color-accent: var(--c-accent);
+  --color-accent-soft: var(--c-accent-soft);
+
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* ---------------------------------------------------------------
+   Base
+--------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
+  background-color: var(--c-bg);
+  color: var(--c-ink);
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
-/* Custom Cursor Styles - Aggressive hiding */
-* {
-  cursor: none !important;
+::selection {
+  background: var(--c-accent-soft);
+  color: var(--c-ink);
 }
 
-html, body {
-  cursor: none !important;
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-/* Ensure cursor is hidden on all elements and pseudo-elements */
-*, *::before, *::after {
-  cursor: none !important;
+/* ---------------------------------------------------------------
+   Typography helpers
+--------------------------------------------------------------- */
+
+/* Small uppercase mono label, used for section indices and eyebrows */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-/* Target specific elements that commonly show cursors */
-a, button, input, textarea, select, [role="button"], [role="link"], [tabindex] {
-  cursor: none !important;
+/* Long-form reading text */
+.prose-body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  letter-spacing: -0.005em;
 }
 
-/* Override any inherited cursor styles */
-div, span, p, h1, h2, h3, h4, h5, h6, section, article, header, footer, nav, main, aside {
-  cursor: none !important;
+/* Figures line up in columns and never shift width */
+.nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
 }
 
-/* Ensure no cursor on interactive elements */
-[onclick], [onmousedown], [onmouseup], [onmouseover], [onmouseout] {
-  cursor: none !important;
-}
-
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  pointer-events: none;
-  z-index: 9999;
-  background-image: url('/Neon Energy Animated--cursor--SweezyCursors.png');
-  background-size: contain;
+/* The quiet flex: metrics inside prose, marked without shouting */
+.metric {
+  color: var(--c-ink);
+  font-family: var(--font-mono);
+  font-size: 0.94em;
+  font-variant-numeric: tabular-nums;
+  background-image: linear-gradient(var(--c-accent), var(--c-accent));
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 0 100%;
+  background-size: 100% 1px;
+  padding-bottom: 1px;
 }
 
-.custom-cursor-pointer {
-  background-image: url('/Neon Energy Animated--pointer--SweezyCursors..cur');
-  transform: scale(1.2);
+/* ---------------------------------------------------------------
+   Surfaces
+--------------------------------------------------------------- */
+
+.hairline {
+  border-color: var(--c-line);
 }
 
-.custom-cursor-glow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 50vmin;
-  height: 50vmin;
-  pointer-events: none;
-  z-index: 9998;
-  background: radial-gradient(circle, rgba(29, 78, 216, 0.12) 0%, rgba(29, 78, 216, 0.06) 30%, rgba(29, 78, 216, 0.02) 60%, transparent 80%);
-  border-radius: 50%;
-  transition: opacity 0.1s ease-out;
+.card {
+  background-color: var(--c-raised);
+  border: 1px solid var(--c-line);
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
 }
 
-/* Hide cursor on mobile devices */
-@media (max-width: 768px) {
-  * {
-    cursor: auto !important;
+.card-link:hover {
+  border-color: var(--c-line-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -18px var(--c-shadow);
+}
+
+/* Faint blueprint grid, masked so it fades out toward the bottom */
+.grid-field {
+  background-image:
+    linear-gradient(to right, var(--c-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--c-line) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 0%, transparent 78%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, #000 0%, transparent 78%);
+  opacity: 0.55;
+}
+
+/* Slow-breathing accent wash behind the hero */
+.aurora {
+  background: radial-gradient(ellipse 60% 50% at 15% 0%, var(--c-glow) 0%, transparent 70%);
+  animation: drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
   }
-  
-  .custom-cursor,
-  .custom-cursor-trail {
-    display: none;
+  to {
+    transform: translate3d(6%, 3%, 0) scale(1.12);
   }
+}
+
+/* Live-status pulse */
+.pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: currentColor;
+  animation: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70%,
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Entrance motion
+   Elements start hidden and are revealed by IntersectionObserver.
+   `.no-js` fallback in the head guarantees content if JS never runs.
+--------------------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .aurora,
+  .pulse::after {
+    animation: none;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Theme toggle icons: show the theme you'd switch *to*
+--------------------------------------------------------------- */
+
+.theme-icon-moon {
+  display: none;
+}
+
+.theme-icon-sun {
+  display: block;
+}
+
+[data-theme="light"] .theme-icon-moon {
+  display: block;
+}
+
+[data-theme="light"] .theme-icon-sun {
+  display: none;
 }

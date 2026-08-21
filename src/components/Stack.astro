@@ -1,0 +1,40 @@
+---
+import { siteConfig } from "../config";
+import SectionHeading from "./SectionHeading.astro";
+
+const groups = siteConfig.skillGroups ?? [];
+---
+
+{
+  groups.length > 0 && (
+    <section id="stack" class="mx-auto max-w-6xl px-6 sm:px-8 py-24 sm:py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+        <SectionHeading
+          index="04"
+          title="Stack"
+          note="Grouped by what it's actually for, not by how it looks on a keyword filter."
+        />
+
+        <div class="lg:col-span-8">
+          <div class="border-t border-line">
+            {groups.map((group, index) => (
+              <div
+                class="reveal grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-2 sm:gap-8 py-6 border-b border-line"
+                style={`transition-delay: ${Math.min(index * 60, 240)}ms`}
+              >
+                <h3 class="label text-faint pt-1">{group.label}</h3>
+                <ul class="flex flex-wrap gap-x-2 gap-y-2">
+                  {group.items.map((item) => (
+                    <li class="text-[0.8rem] leading-none text-dim border border-line rounded-full px-3 py-1.5 hover:border-line-strong hover:text-ink transition-colors">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
