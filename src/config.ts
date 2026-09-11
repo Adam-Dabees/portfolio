@@ -77,7 +77,7 @@ export const siteConfig: SiteConfig = {
   skillGroups: [
     {
       label: "Languages",
-      items: ["Python", "C/C++", "Java", "TypeScript", "JavaScript", "SQL", "Bash/Shell"],
+      items: ["Python", "C/C++", "C#", "Go", "Java", "TypeScript", "JavaScript", "SQL", "Bash/Shell"],
     },
     {
       label: "Systems & Networking",
@@ -111,7 +111,9 @@ export const siteConfig: SiteConfig = {
         "Computer vision",
         "Image processing",
         "Real-time inference pipelines",
+        "Model training & tuning",
         "Model evaluation",
+        "Latency-budgeted inference",
         "LLMs & LLM serving (Groq)",
         "AI agents",
         "Model Context Protocol",
@@ -122,6 +124,8 @@ export const siteConfig: SiteConfig = {
       label: "Data & Storage",
       items: [
         "PostgreSQL",
+        "SQLite",
+        "Schema design",
         "DynamoDB",
         "Firestore",
         "Redis",
@@ -157,10 +161,12 @@ export const siteConfig: SiteConfig = {
       location: "Palo Alto, CA",
       current: true,
       bullets: [
-        "Develop and improve machine vision systems for automated defect detection on live production hardware: image processing pipelines, camera and lighting configuration, and detection accuracy measured against labeled failure cases.",
-        "Debug system-level failures on high-volume production lines alongside controls and process engineering, tracing faults across software, camera hardware, and network layers.",
-        "Analyze image and production data to find where inspection accuracy breaks down, then feed those cases back into detection logic.",
-        "Write Python and shell tooling that automates inspection, validation, and production data analysis for the engineering team.",
+        "Architected and own an internal full-stack platform end to end: Python backend, Next.js frontend, containerized with Docker and deployed on Kubernetes as a self-service tool for other Tesla teams. It computes optimal camera placement and count from CAD geometry, lens configuration, and scan height, replacing manual iteration on lines where each camera runs **over $100K**.",
+        "Designed the database schemas behind that platform, and am migrating its store from SQLite to PostgreSQL as the data model and query load outgrew it.",
+        "Build the decisioning layer for Mantis, the in-house lineside vision software, in Python and C#: working across raw and processed production data, training and tuning models against it, and holding inference inside a fixed latency budget so pass/fail calls run inline at line speed rather than after the fact.",
+        "Standing up a dedicated ML training machine to train models for Coherix, another internal application.",
+        "Debug system-level failures on high-volume production lines alongside manufacturing, controls, and process engineering, tracing faults across software, camera and lighting hardware, and network layers.",
+        "Contributed Go to a same-day fix for a live production failure in my first week, revised through senior code review.",
       ],
     },
     {
