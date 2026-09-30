@@ -48,7 +48,7 @@ export const siteConfig: SiteConfig = {
   name: "Adam Dabees",
   title: "Software Engineer: machine vision, distributed systems, infrastructure",
   description:
-    "Adam Dabees is a software engineer working on machine vision at Tesla, distributed systems, and infrastructure. B.Eng. Software Engineering (Co-Op) at McMaster University.",
+    "Adam Dabees | Machine Vision Software Engineer Intern at Tesla. Machine vision, distributed systems, infrastructure. Available Jan–Aug 2027.",
 
   // Current status, surfaced quietly in the hero and header.
   now: {
@@ -56,7 +56,7 @@ export const siteConfig: SiteConfig = {
     org: "Tesla, Vision Systems",
     location: "Palo Alto, CA",
   },
-  availability: "Available May – Aug 2027",
+  availability: "Available Jan – Aug 2027 (up to 8 months)",
 
   social: {
     email: "adamdabees8@gmail.com",
@@ -66,7 +66,8 @@ export const siteConfig: SiteConfig = {
 
   // Small data strip under the hero. Kept short on purpose.
   highlights: [
-    { value: "3.91", unit: "/ 4.00", label: "GPA, top 1% of cohort" },
+    { value: "3.92", unit: "/ 4.00", label: "GPA, top 1% of cohort" },
+    { value: "24×", unit: "faster", label: "data pipeline load, 41.5s to 1.7s" },
     { value: "30K+", unit: "", label: "monthly users served in production" },
     { value: "<100", unit: "ms", label: "at 1,000+ concurrent connections" },
   ],
@@ -108,6 +109,9 @@ export const siteConfig: SiteConfig = {
     {
       label: "ML & Vision",
       items: [
+        "HALCON",
+        "OpenCV",
+        "PyTorch",
         "Computer vision",
         "Image processing",
         "Real-time inference pipelines",
@@ -124,6 +128,8 @@ export const siteConfig: SiteConfig = {
       label: "Data & Storage",
       items: [
         "PostgreSQL",
+        "MySQL",
+        "pgvector",
         "SQLite",
         "Schema design",
         "DynamoDB",
@@ -161,26 +167,25 @@ export const siteConfig: SiteConfig = {
       location: "Palo Alto, CA",
       current: true,
       bullets: [
-        "Architected and own an internal full-stack platform end to end: Python backend, Next.js frontend, containerized with Docker and deployed on Kubernetes as a self-service tool for other Tesla teams. It computes optimal camera placement and count from CAD geometry, lens configuration, and scan height, replacing manual iteration on lines where each camera runs **over $100K**.",
-        "Designed the database schemas behind that platform, and am migrating its store from SQLite to PostgreSQL as the data model and query load outgrew it.",
-        "Build the decisioning layer for Mantis, the in-house lineside vision software, in Python and C#: working across raw and processed production data, training and tuning models against it, and holding inference inside a fixed latency budget so pass/fail calls run inline at line speed rather than after the fact.",
-        "Standing up a dedicated ML training machine to train models for Coherix, another internal application.",
-        "Debug system-level failures on high-volume production lines alongside manufacturing, controls, and process engineering, tracing faults across software, camera and lighting hardware, and network layers.",
-        "Contributed Go to a same-day fix for a live production failure in my first week, revised through senior code review.",
+        "Build the decision layer of lineside computer vision software on a live battery production line using HALCON, making inline pass/fail calls on real camera sensor data within a fixed latency budget.",
+        "Built and own an internal platform end to end for a **~100-person org** (Python, Go, and C# services, React frontend, Docker, Kubernetes, CI/CD) that tests camera placement in 3D against live CAD, replacing estimates worth **$100K per camera**.",
+        "Cut the platform's data pipeline load time **24x (41.5s to 1.7s)** by profiling Python and C++ hot paths, caching parsed geometry in a binary format, and batching calls over **1.3M vertices**.",
+        "Migrated the platform's data store from SQLite to PostgreSQL and load-balanced image uploads from vision machines across FTP servers.",
+        "Training a computer vision model from scratch in PyTorch for the team's machine vision systems.",
+        "Debug production line failures on the floor across software, hardware, and network layers; learned Go in my first week to ship a same-day fix for a live production failure.",
       ],
     },
     {
       company: "Ontario Teachers' Pension Plan",
-      context: "$247B AUM, Canada's largest single-profession pension fund",
+      context: "$247B pension fund",
       title: "Software Engineer (Co-Op)",
       dateRange: "May 2026 – Aug 2026",
       location: "Toronto, ON",
       bullets: [
-        "Built Python AI agents and MCP-based systems that replaced manual log inspection with automated anomaly surfacing across a large internal codebase.",
-        "Deployed and operated containerized services on Kubernetes (AKS) with Docker: rollout config, resource requests, and scaling behavior for internal platform workloads.",
-        "Debugged production issues across distributed services using Dynatrace distributed tracing, isolating faults spanning application, container, and network layers.",
-        "Automated provisioning with Terraform and Ansible, replacing manual setup with consistent, auditable environments across **5+ internal services**.",
-        "Shipped through Jenkins CI/CD pipelines covering build, automated test, and release.",
+        "Built LLM agents with Model Context Protocol (MCP) integrations into Dynatrace, Jira, and Azure that flag **5–10 failing VMs a day**, replacing **2+ hours** of daily log review for 3 engineers; adopted by the **15+ person** InfoSec team.",
+        "Automated a **15–25 minute** manual per-VM override with Ansible, removing it from every cloud deployment; shipped production services on Kubernetes (AKS) in Azure with Terraform.",
+        "Wrote hundreds of unit, integration, and end-to-end tests gating every release through CI/CD (Jenkins, GitHub Actions), with security review on a 10-person team.",
+        "Debugged production issues using Dynatrace distributed tracing.",
       ],
     },
     {
@@ -196,17 +201,44 @@ export const siteConfig: SiteConfig = {
         "Established structured logging, distributed tracing, and alerting that cut average incident resolution time **50%**.",
       ],
     },
+    {
+      company: "AFA Solutions",
+      context: "Software consultancy",
+      title: "Founder",
+      dateRange: "Jan 2024 – Aug 2026",
+      location: "Remote",
+      bullets: [
+        "Built CRMs, booking systems, and websites for **25 small-business clients** as sole engineer, from requirements to deployment; one salon's deposit flow took its show rate to **98%** with **100+ bookings** in two months.",
+        "Handed operations to partners in August 2026.",
+      ],
+    },
   ],
-
   projects: [
     {
-      name: "LiveCategories",
-      tagline: "Real-time multiplayer platform",
-      year: "2024",
+      name: "StringBench",
+      tagline: "Translation review platform",
+      year: "Sep 2026 – Present",
       description:
-        "A real-time distributed platform running on Kubernetes, holding **1,000+ concurrent connections** at **sub-100ms latency** over persistent WebSocket/TCP sockets. Kafka handles inter-service event streaming; request routing and horizontal autoscaling keep throughput steady across replicas under load.",
+        "Concurrent Go workers claim jobs from a database queue with SKIP LOCKED so no job runs twice, with a rebuildable pgvector index and LLM checks scored against a labelled evaluation set. The full stack runs in Docker Compose with a Jenkins pipeline.",
+      skills: ["Go", "Gin", "Python", "MySQL", "PostgreSQL", "pgvector", "Docker Compose", "Jenkins"],
+    },
+    {
+      name: "Shopifly",
+      tagline: "Real-time monitoring product",
+      year: "2024 – Present",
+      description:
+        "Live real-time monitoring product with paying customers, tracking **140K+ records** at **sub-800ms** latency. Built the data pipeline, schema, backend, and Stripe billing.",
+      link: "https://www.shopifly.io",
+      skills: ["Next.js 15", "AWS Lambda", "DynamoDB", "API Gateway", "Playwright", "Stripe", "Cognito"],
+    },
+    {
+      name: "LiveCategories",
+      tagline: "Real-time distributed platform",
+      year: "2025",
+      description:
+        "Real-time distributed platform handling **1,000+ concurrent users** at **sub-100ms** latency: events stream through Kafka into stateful services with Redis caching and horizontal scaling on Kubernetes.",
       link: "https://live-categories.vercel.app",
-      skills: ["Kubernetes", "Docker", "Kafka", "PostgreSQL", "WebSockets", "FastAPI", "Next.js"],
+      skills: ["Go", "Python", "Kafka", "Redis", "Kubernetes", "Docker"],
     },
     {
       name: "ResumeMatcher Pro",
@@ -217,35 +249,7 @@ export const siteConfig: SiteConfig = {
       link: "https://resumematcherandlatexeditor.vercel.app",
       skills: ["Python", "FastAPI", "Groq LLM", "Next.js 15", "LaTeX", "Vercel"],
     },
-    {
-      name: "Shopifly",
-      tagline: "E-commerce monitoring & automation",
-      year: "2025",
-      description:
-        "Tracks product availability across arbitrary online stores and executes automated purchases. A WebSocket-driven queue dispatches Playwright browser jobs across AWS Lambda, with DynamoDB persistence, Cognito auth, and Stripe subscription tiers behind API Gateway.",
-      link: "https://www.shopifly.io",
-      skills: ["Next.js 15", "AWS Lambda", "DynamoDB", "API Gateway", "Playwright", "Stripe", "Cognito"],
-    },
-    {
-      name: "Rescue Mission",
-      tagline: "Island exploration engine",
-      year: "2024",
-      description:
-        "An exploration command center for the Island serious game: Java game logic on Maven, with map exploration, point-of-interest detection, and the decision algorithms that drive search strategy under a fuel budget.",
-      link: "https://github.com/arian-fallahpour/2AA4-A2",
-      skills: ["Java", "Maven", "Algorithm Design", "JUnit"],
-    },
-    {
-      name: "Revenge of the Recycling System",
-      tagline: "Systems analysis",
-      year: "2024",
-      description:
-        "System design and data analysis on recycling and waste-management processes, working from measured throughput rather than assumptions about where the losses were.",
-      link: "https://ember-dormouse-ef0.notion.site/P3-Revenge-of-the-Recycling-System-6bcd090e3756483bb9ad353e5270fddf",
-      skills: ["System Design", "Data Analysis", "Modeling"],
-    },
   ],
-
   leadership: [
     {
       role: "Founder",
@@ -270,7 +274,7 @@ export const siteConfig: SiteConfig = {
       dateRange: "Sep 2023 – May 2028 (Expected)",
       location: "Hamilton, ON",
       achievements: [
-        "**3.91 / 4.00** GPA, top 1% of cohort",
+        "**3.92 / 4.00** GPA, top 1% of cohort",
         "Admitted under Free Choice Admission, top 1% of all applicants",
       ],
       coursework: [

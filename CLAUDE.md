@@ -49,7 +49,7 @@ The project follows a component-based architecture with all customization centra
   `Header.astro` writes the choice back to localStorage.
 - Colors are exposed to Tailwind through `@theme inline`, which keeps utilities like
   `text-ink` and `border-line` pointing at the live CSS variables. That is what lets the
-  toggle re-theme the page without a reload — do not inline hex values in components.
+  toggle re-theme the page without a reload. Do not inline hex values in components.
 - Type pairing: IBM Plex Mono is the default for the whole UI (headings, labels,
   figures); IBM Plex Sans is applied only to long-form prose via the `.prose-body`
   class. Keep the monospace character dominant.
@@ -75,7 +75,7 @@ When modifying components:
 ## Metric Markup
 
 Strings in `src/config.ts` may wrap figures in `**double asterisks**`. `src/lib/text.ts`
-splits those out and components render them with the `.metric` class — a subtle accent
+splits those out and components render them with the `.metric` class, a subtle accent
 underline. Content is always rendered as text nodes; nothing from the config is injected
 as raw HTML.
 
@@ -84,14 +84,14 @@ as raw HTML.
 `src/config.ts` exports a typed `siteConfig` object (interfaces are declared in the same
 file) with these sections:
 - Basic info: `name`, `title`, `description`
-  (the accent color is *not* here — it is a theme token, `--c-accent`, defined per
+  (the accent color is *not* here; it is a theme token, `--c-accent`, defined per
   theme in `src/styles/global.css`, because dark and light need different values)
 - `now`: current role/org/location, surfaced in the hero status line and page title
 - `availability`: short availability string
 - `social`: email, linkedin, github, twitter (all optional except email)
 - `highlights`: the three-figure data strip under the hero
 - `aboutMe`: string, split on blank lines into paragraphs
-- `skillGroups`: array of `{label, items[]}` — grouped by purpose, rendered in `Stack.astro`
+- `skillGroups`: array of `{label, items[]}`, grouped by purpose, rendered in `Stack.astro`
 - `experience`: array of `{company, context, title, dateRange, location, current?, website?, bullets[]}`
 - `projects`: array of `{name, tagline, year, description, link?, skills[]}`
 - `leadership`: array of `{role, org, dateRange, description}`
